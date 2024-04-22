@@ -3,14 +3,14 @@ const cors = require('cors');
 const mysql = require('mysql');
 
 const app = express();
-const port = 5000;
+// const port = 5000;
 
 
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',      
-  password: '', 
-  database: 'jollof'
+  host: 'eu-cluster-west-01.k8s.cleardb.net',
+  user: 'ba6c4a0cc146c9',      
+  password: 'f5441686', 
+  database: 'heroku_c4c0118e562ce94'
 });
 
 
@@ -64,6 +64,10 @@ app.post('/login', (req, res) => {
 });
 
 
+// app.listen(port, () => {
+//   console.log(`Server is running on port ${port}`);
+// });
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+    console.log(`Server is running on port ${port}`);
 });
